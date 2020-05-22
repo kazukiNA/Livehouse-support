@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Comment;
+use OurLive\Comment;
 use Faker\Generator as Faker;
 
-$factory->define(App\Comment::class, function (Faker $faker) {
+$factory->define(OurLive\Comment::class, function (Faker $faker) {
     return [
         //
         'body' => '素敵なカフェですね',

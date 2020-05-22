@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace OurLive\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Project;
-use App\Reward;
+use OurLive\Project;
+use OurLive\Reward;
 
 class RewardsController extends Controller
 {

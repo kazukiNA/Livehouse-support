@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace OurLive;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -26,13 +26,13 @@ class Project extends Model
     );
 
     public function rewards(){
-        return $this->hasMany('App\Reward');
+        return $this->hasMany('OurLive\Reward');
     }
 }
 
 /*<?php
 
-namespace App;
+namespace OurLive;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -46,6 +46,6 @@ class Post extends Model
 
     public function comments()
     {
-        return $this->hasMany('App\Comment');    
+        return $this->hasMany('OurLive\Comment');    
     }
 }

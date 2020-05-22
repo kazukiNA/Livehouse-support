@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace OurLive;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,6 +19,6 @@ class Order extends Model
     );
 
     public function reward2(){
-        return $this->belongsTo('App\Reward');
+        return $this->belongsTo('OurLive\Reward');
     }
 }

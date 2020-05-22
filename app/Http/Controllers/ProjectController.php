@@ -1,18 +1,26 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace OurLive\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Project;
-use App\Reward;
-use App\Order;
+use OurLive\Project;
+use OurLive\Reward;
+use OurLive\Order;
 use Carbon\Carbon;
 class ProjectController extends Controller
 {
     //
     public function welcome(){
         return view('project.welcome');
+    }
+
+    public function signin(){
+        return view('project.signin');
+    }
+
+    public function signup(){
+        return view('project.signup');
     }
 
     public function index(Request $request){

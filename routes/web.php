@@ -18,6 +18,10 @@ use App\Project;
 });*/
 Route::get('/', 'ProjectController@welcome');
 
+Route::get('/signin','Projectcontroller@signin');
+
+Route::get('/signup','Projectcontroller@signup');
+
 Auth::routes();
 
 Route::get('home', 'ProjectController@index')->name('home');
@@ -27,8 +31,6 @@ Route::get('project','ProjectController@index');
 Route::get('support/{project}','ProjectController@support');
 
 Route::post('check/{project}','ProjectController@check');
-
-
 
 Route::get('create','ProjectController@create');
 

@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Post;
+use OurLive\Post;
 use Faker\Generator as Faker;
 
-$factory->define(App\Post::class, function (Faker $faker) {
+$factory->define(OurLive\Post::class, function (Faker $faker) {
     return [
         //
         'title' => 'このカフェいいな',
