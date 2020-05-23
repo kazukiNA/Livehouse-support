@@ -29,7 +29,7 @@ class HomeController extends Controller
             return view('orner.home');
         }else{
             $created_rewards = Reward::where('project_id',$created->id);
-            return view('orner.home',compact('$created','created_rewards'));
+            return view('orner.home',compact('created','created_rewards'));
         }
         
 }
