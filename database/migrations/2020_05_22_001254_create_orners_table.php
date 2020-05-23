@@ -21,7 +21,8 @@ class CreateOrnersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('city_address');
-            $table->string('passward');
+            $table->string('password')->nullable();
+            $table->rememberToken();
             $table->timestamps();
         });
     }

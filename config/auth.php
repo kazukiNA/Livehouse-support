@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'user',
         'passwords' => 'users',
     ],
 
@@ -36,7 +36,7 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        'user' => [
             'driver' => 'session',
             'provider' => 'users',
         ],
@@ -44,7 +44,12 @@ return [
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
-            'hash' => false,
+            
+        ],
+
+        'orner' => [
+            'driver' => 'session',
+            'provider' => 'orners',
         ],
     ],
 
@@ -70,6 +75,11 @@ return [
             'driver' => 'eloquent',
             'model' => OurLive\User::class,
         ],
+
+        'orners' => [
+            'driver' => 'eloquent',
+            'model' => OurLive\Orner::class,
+        ]
 
         // 'users' => [
         //     'driver' => 'database',
@@ -99,6 +109,13 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+
+        'orners' => [
+            'provider' => 'orners',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ]
     ],
 
     /*

@@ -7,20 +7,13 @@ use Illuminate\Support\Facades\Auth;
 use OurLive\Project;
 use OurLive\Reward;
 use OurLive\Order;
+use OurLive\Orner;
 use Carbon\Carbon;
 class ProjectController extends Controller
 {
     //
     public function welcome(){
         return view('project.welcome');
-    }
-
-    public function signin(){
-        return view('project.signin');
-    }
-
-    public function signup(){
-        return view('project.signup');
     }
 
     public function index(Request $request){
@@ -70,7 +63,9 @@ class ProjectController extends Controller
         $project->apprication_end=$request->apprication_end;
         $project->title =$request->title;
         $project->description =$request->description;
-        $project->save();
+        $orner_id = $request->session()->get('login_orner_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+        $orner = Orner::where('id',$orner_id)->first();
+        $orner->lives()->save($project);
         return view('project.reward',compact('project'));
     }
     public function histry(){

@@ -28,6 +28,10 @@ class Project extends Model
     public function rewards(){
         return $this->hasMany('OurLive\Reward');
     }
+
+    public function orner(){
+        return $this->belongsTo('OurLive\Orner');
+    }
 }
 
 /*<?php

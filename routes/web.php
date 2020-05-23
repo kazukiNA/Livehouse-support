@@ -18,11 +18,29 @@ use App\Project;
 });*/
 Route::get('/', 'ProjectController@welcome');
 
-Route::get('/signin','Projectcontroller@signin');
-
-Route::get('/signup','Projectcontroller@signup');
-
 Auth::routes();
+
+Route::group(['prefix' => 'orner', 'middleware' => 'guest:orner'], function() {
+    Route::get('/', function () {
+        return view('orner.welcome');
+    });
+
+Route::get('login', 'Orner\Auth\LoginController@showLoginForm')->name('orner.login');
+Route::post('login', 'Orner\Auth\LoginController@login')->name('orner.login');
+
+Route::get('register', 'Orner\Auth\RegisterController@showRegisterForm')->name('orner.register');
+Route::post('register', 'Orner\Auth\RegisterController@register')->name('orner.register');
+
+Route::get('password/rest', 'Orner\Auth\ForgotPasswordController@showLinkRequestForm')->name('orner.password.request');
+
+
+});
+
+Route::group(['prefix' => 'orner', 'middleware' => 'auth:orner'], function(){
+    Route::post('logout', 'Orner\Auth\LoginController@logout')->name('orner.logout');
+    Route::get('home', 'Orner\HomeController@index')->name('orner.home');
+});
+
 
 Route::get('home', 'ProjectController@index')->name('home');
 

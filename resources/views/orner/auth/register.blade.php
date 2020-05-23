@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.orner')
 
 @section('content')
 <div class="container">
@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('orner.register') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -40,62 +40,49 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('性別') }}</label>
+                            <label for="ruby" class="col-md-4 col-form-label text-md-right">{{ __('フリガナ') }}</label>
 
                             <div class="col-md-6">
-                                <div class="form-check form-check-inline">
-                                    <input id="male" type="radio" class="form-check-input @error('gender') is-invalid @enderror" name="gender" value="male" required autocomplete="gender"><label class="form-check-lavel" for="male">男性</label>                                    
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input id="female" type="radio" class="form-check-input @error('gender') is-invalid @enderror" name="gender" value="female" required autocomplete="gender"><label class="form-check-lavel" for="female">女性</label>                                    
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input id="secret" type="radio" class="form-check-input @error('gender') is-invalid @enderror" name="gender" value="secret" required autocomplete="gender"><label class="form-check-lavel" for="secret">無回答</label>                                    
-                                </div>
-        
-                                @error('gender')
+                                <input id="ruby" type="text" class="form-control @error('ruby') is-invalid @enderror" name="ruby" value="{{ old('ruby') }}" required autocomplete="ruby">
+
+                                @error('ruby')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                         </div>
-<!--
+
                         <div class="form-group row">
-                            <label for="age" class="col-md-4 col-form-label text-md-right">{{ __('生年月日') }}</label>
+                            <label for="phone_number" class="col-md-4 col-form-label text-md-right">{{ __('電話番号') }}</label>
+
                             <div class="col-md-6">
-                                
-                                    <select id="birth_year" class="form-control @error('birth') is-invalid @enderror" name="birth_year" required autocomplete="birth_year">
-                                        <option value="">---</option>
-                                        @foreach(range(1920,2020) as $year)
-                                        <option value="{{$year}}">{{$year}}</option>
-                                        @endforeach
-                                    </select>
-                                
-                               
-                                    <select id="birth_month" class="form-control @error('birth') is-invalid @enderror" name="birth_month" required autocomplete="birth_month">
-                                        <option value="">---</option>
-                                        @foreach(range(1,12) as $month)
-                                        <option value="{{$month}}">{{$month}}</option>
-                                        @endforeach
-                                    </select>
-                              
-                                    <select id="birth_day" class="form-control @error('birth') is-invalid @enderror" name="birth_day" required autocomplete="birth_day">
-                                        <option value="">---</option>
-                                        @foreach(range( 1,31) as $day)
-                                        <option value="{{$day}}">{{$day}}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('birth')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                
-                           
+                                <input id="phone_number" type="text" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" required autocomplete="phone_number">
+
+                                @error('phone_number')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                         </div>
 
--->
+                        <div class="form-group row">
+                            <label for="city_address" class="col-md-4 col-form-label text-md-right">{{ __('住所') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="city_address" type="text" class="form-control @error('city_address') is-invalid @enderror" name="city_address" value="{{ old('city_address') }}" required autocomplete="city_address">
+
+                                @error('city_address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                       
+                       
                         
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('パスワード') }}</label>

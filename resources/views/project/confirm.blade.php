@@ -41,6 +41,10 @@
                     @endforeach
                 </table>
             </div>
+            
+            <div class="button">
+                    <a href="/orner/home" class="back_link">ホームに戻る</a>
+            </div>
         </div>
-    </div>
+    </>
 @endsection
