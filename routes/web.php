@@ -39,6 +39,7 @@ Route::get('password/rest', 'Orner\Auth\ForgotPasswordController@showLinkRequest
 Route::group(['prefix' => 'orner', 'middleware' => 'auth:orner'], function(){
     Route::post('logout', 'Orner\Auth\LoginController@logout')->name('orner.logout');
     Route::get('home', 'Orner\HomeController@index')->name('orner.home');
+    Route::get('histry/{rere}','Orner\HomeController@histry')->name('orner.home');
 });
 
 
@@ -58,6 +59,6 @@ Route::post('confirm/{project}','RewardsController@store');
 
 Route::post('/charge','ChargeController@charge');
 
-Route::post('/histry','ProjectController@histry');
+Route::post('/histry{reward_id}','ProjectController@histry');
 
 //Route::match(['get','post'],'/confirm','ProjectController@inde');

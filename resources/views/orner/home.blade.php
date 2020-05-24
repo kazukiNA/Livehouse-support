@@ -16,7 +16,7 @@
                         </tr>
                         <tr>
                             <th class="confirm-heading">目標金額</th>
-                            <td class="confirm-content">{{$created->target_amount}}</td>
+                            <td class="confirm-content">{{$created->target_amount}} 円</td>
                         </tr>
                         <tr>
                             <th class="confirm-heading">支援終了日</th>
@@ -30,16 +30,22 @@
                             <th class="confirm-heading">概要文</th>
                             <td class="confirm-content">{{$created->description}}</td>
                         </tr>
-                        @foreach($created_rewards as $reward)
+                        
+                        @for($i=0; $i < count($created_rewards);$i++)
                         <tr>
                             <th class="confirm-heading">リターン金額</th>
-                            <td class="confirm-content">{{$created_rewards->price}}</td>
+                            <td class="confirm-content">{{$created_rewards[$i]->reward_price}} 円</td>
                         </tr>
                         <tr>
                             <th class="confirm-heading">リターン内容</th>
-                            <td class="confirm-content">{{$created_rewards->content}} 円</td>
+                            <td class="confirm-content">{{$created_rewards[$i]->reward_content}}</td>
                         </tr>
-                        @endforeach
+                        @php $reward_id=$created_rewards[$i]->id; @endphp
+                        
+                            <th class="confirm-heading">支援者数</th>
+                            <td class="confirm-content">{{$support_count[$i]}} 人　[<a href="{{url('orner/histry/'.$reward_id)}}">詳細</a>]</td>
+                        </tr>
+                        @endfor
                     </table>
                 @else
                     <div class="no-project">

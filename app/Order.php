@@ -10,6 +10,7 @@ class Order extends Model
         'project_id',
         'reward_id',
         'user_id',
+        'user_name',
         'quantity',
         
     ];

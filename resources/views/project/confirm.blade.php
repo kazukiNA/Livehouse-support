@@ -32,11 +32,11 @@
                     @foreach($rewards as $reward)
                     <tr>
                         <th class="confirm-heading">リターン金額</th>
-                        <td class="confirm-content">{{$reward->price}}</td>
+                        <td class="confirm-content">{{$reward->reward_price}}</td>
                     </tr>
                     <tr>
                         <th class="confirm-heading">リターン内容</th>
-                        <td class="confirm-content">{{$reward->content}} 円</td>
+                        <td class="confirm-content">{{$reward->reward_content}} 円</td>
                     </tr>
                     @endforeach
                 </table>
