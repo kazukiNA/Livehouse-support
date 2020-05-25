@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedInteger('project_id')->nullable($value=true);
             $table->unsignedInteger('reward_id')->nullable($value=true);
             $table->integer('user_id');
+            $table->string('user_name');
             $table->integer('quantity')->nullable($value=true);
             $table->timestamps();
             $table->foreign('project_id')->references('id')->on('projects');

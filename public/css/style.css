@@ -33,6 +33,10 @@
     width:80%;
 }
 
+.content_text{
+    padding:80px;
+}
+
 #reward2{
     display: none;
 }

@@ -8,6 +8,7 @@
     </div>
         <div class="box-check">
             <div class="box-check-in">
+                <h3>ライブハウス情報</h3>　<a href='edit/project/{{$created->id}}' class="btn btn-primary btn-sm">編集</a>
                 @if(!empty($created))
                     <table class="check_table" border="1">
                         <tr>
@@ -16,7 +17,7 @@
                         </tr>
                         <tr>
                             <th class="confirm-heading">目標金額</th>
-                            <td class="confirm-content">{{$created->target_amount}} 円</td>
+                            <td class="confirm-content">{{$created->target_amount}} 円 </td>
                         </tr>
                         <tr>
                             <th class="confirm-heading">支援終了日</th>
@@ -30,7 +31,8 @@
                             <th class="confirm-heading">概要文</th>
                             <td class="confirm-content">{{$created->description}}</td>
                         </tr>
-                        
+                    </table>
+                    <table class="check_table" border="1">
                         @for($i=0; $i < count($created_rewards);$i++)
                         <tr>
                             <th class="confirm-heading">リターン金額</th>

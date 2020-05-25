@@ -18,7 +18,7 @@
         <div class="form-group clearfix">
             <label for="reward1_content" class="form-heading">{{ __('内容') }}</label>
             <div class="form-body">
-                <textarea id="reward1_content" type="text" class="form-control" name="reward1_content" value="{{ old('reward1_content') }}" placeholder="リターンの内容とそのリターンについたの概要を書いてみましょう。&#13;&#10;&#13;&#10;(例) タオル&#13;&#10;3000円を支援していただいた方には弊ライブハウスオリジナルのタオルを差し上げます。収束後にそのタオルとともに、ライブをお楽しみください。" required autocomplete="off"></textarea>
+                <textarea id="reward1_content" type="text" class="form-control content_text" name="reward1_content" value="{{ old('reward1_content') }}" placeholder="リターンの内容とそのリターンについたの概要を書いてみましょう。&#13;&#10;(例) タオル&#13;&#10;3000円を支援していただいた方には弊ライブハウスオリジナルのタオルを差し上げます。収束後にそのタオルとともに、ライブをお楽しみください。" required autocomplete="off"></textarea>
             </div>
         </div>          
 
@@ -32,7 +32,7 @@
             <div class="form-group clearfix">
                 <label for="reward2_content" class="form-heading">{{ __('内容') }}</label>
                 <div class="form-body">
-                    <textarea id="rewar2_content" type="text" class="form-control" name="reward2_content" value="{{ old('reward2_content') }}" autocomplete="off"></textarea>
+                    <textarea id="rewar2_content" type="text" class="form-control content_text" name="reward2_content" value="{{ old('reward2_content') }}" autocomplete="off"></textarea>
                 </div>
             </div>
         </div>    
@@ -41,13 +41,13 @@
             <div class="form-group">
                 <label for="reward2_price" class="form-heading">{{ __('金額') }}</label>
                 <div class="form-body">
-                    <input id="reward2_price" type="number" class="form-control" name="reward3_price" value="{{ old('reward3_price') }}"  autocomplete="off">
+                    <input id="reward2_price" type="number" class="form-control " name="reward3_price" value="{{ old('reward3_price') }}"  autocomplete="off">
                 </div>
             </div>
             <div class="form-group">
                 <label for="reward3_content" class="form-heading">{{ __('内容') }}</label>
                 <div class="form-body">
-                    <textarea id="reward3_content" type="text" class="form-control" name="reward3_content" value="{{ old('reward3_content') }}" autocomplete="off"></textarea>
+                    <textarea id="reward3_content" type="text" class="form-control content_text" name="reward3_content" value="{{ old('reward3_content') }}" autocomplete="off"></textarea>
                 </div>
             </div>  
         </div>

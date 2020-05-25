@@ -41,7 +41,8 @@ class ProjectController extends Controller
         $order->project_id = $id;
         $order->reward_id = $return_id;
         $order->user_id = Auth::id();
-        $order->user_name = Auth::name();
+        $user = Auth::user();
+        $order->user_name = $user->name;
         $b = intval($return_id);
         $order->quantity = $request->{'quantity_'.$b};
         $reward = Reward::where('id',$return_id)->first();

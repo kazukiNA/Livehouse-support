@@ -12,7 +12,7 @@
             <table class="check_table" border="1">
                         <tr>
                             <th class="confirm-heading">支援者名</th>
-                            <td class="confirm-content">{{$histry_order->id}}</td>
+                            <td class="confirm-content">{{$histry_order->user_name}}</td>
                         </tr>
                         <tr>
                             <th class="confirm-heading">支援金額</th>

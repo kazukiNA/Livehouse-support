@@ -40,6 +40,7 @@ Route::group(['prefix' => 'orner', 'middleware' => 'auth:orner'], function(){
     Route::post('logout', 'Orner\Auth\LoginController@logout')->name('orner.logout');
     Route::get('home', 'Orner\HomeController@index')->name('orner.home');
     Route::get('histry/{rere}','Orner\HomeController@histry')->name('orner.home');
+    Route::get('edit/project/{id}','Orner\HomeController@edit_project')->name('orner.edit');
 });
 
 
