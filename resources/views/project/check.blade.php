@@ -3,9 +3,13 @@
 @section('content')
     <div class="container mt-4">
         <h2>内容をご確認ください</h2>
-        <hr>   
+        <hr> 
+        <form action="{{url('pay/')}}" method="post"> 
+                    {{ csrf_field()}}  
         <div class="box-check">
+            
             <div class="box-check-in">
+                 
                 <table class="check_table" border="1">
                     <tr>
                         <th>ライブハウス名</th>
@@ -19,11 +23,12 @@
                     </tr>
                     <tr>
                         <th>支援金額</th>
-                        <td>{{$rewards[$i]->reward_price}} × {{$orders[$i]->quantity}} = @php echo($rewards[$i]->reward_price*$orders[$i]->quantity); @endphp 円</td>
+                        <td>{{$rewards[$i]->reward_price}} × {{$orders[$i]}} = @php echo($rewards[$i]->reward_price*$orders[$i]); @endphp 円</td>
                     </tr>
                     @php
-                    $sum += $rewards[$i]->reward_price*$orders[$i]->quantity;
+                    $sum += $rewards[$i]->reward_price*$orders[$i];
                     @endphp
+                    <input type="hidden" name="reward_id[{{$i}}]" value="{{$rewards[$i]->id}}">  
                     @endfor
                    
                 </table>
@@ -32,24 +37,11 @@
                 </div>
             </div>
         </div>
-        
-
-        <div class="content">
-            
-                <form class="settlement" action="{{ asset('charge') }}" method="POST">
-                    {{ csrf_field() }}
-                            <script
-                                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                                    data-key="{{ env('STRIPE_KEY') }}"
-                                    data-amount="1000"
-                                    data-name="Stripe Demo"
-                                    data-label="決済をする"
-                                    data-description="Online course about integrating Stripe"
-                                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                                    data-locale="auto"
-                                    data-currency="JPY">
-                            </script>
-                </form>
-        </div>
+                <div class="button">
+                    <input type="hidden" value="{{$project}}">
+                    
+                    <input class="button_link" type="submit" value="支援する">
+                </div>
+            </form>
     </div> 
 @endsection

@@ -56,14 +56,18 @@ Route::get('support/{project}','ProjectController@support');
 
 Route::post('check/{project}','ProjectController@check');
 
+Route::post('pay/','ProjectController@pay');
+
 Route::get('create','ProjectController@create');
 
 Route::post('reward/{project}','ProjectController@reward');
 
-Route::post('confirm/{project}','RewardsController@store');
+Route::post('confirm/','RewardsController@store');
 
 Route::post('/charge','ChargeController@charge');
 
 Route::post('/histry{reward_id}','ProjectController@histry');
+
+Route::post('save/','ProjectController@save');
 
 //Route::match(['get','post'],'/confirm','ProjectController@inde');

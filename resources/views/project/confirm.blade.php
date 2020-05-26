@@ -41,10 +41,14 @@
                     @endforeach
                 </table>
             </div>
-            
-            <div class="button">
-                    <a href="/orner/home" class="back_link">ホームに戻る</a>
-            </div>
+            <form action="{{url('save/')}}" method="post">
+                {{ csrf_field()}}
+                <div class="button">
+                    <input type="hidden" value="{{$project}}">
+                    
+                    <input class="button_link" type="submit" value="登録する">
+                </div>
+            </form>
         </div>
     </>
 @endsection

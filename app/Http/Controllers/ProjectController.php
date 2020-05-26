@@ -46,12 +46,21 @@ class ProjectController extends Controller
         $b = intval($return_id);
         $order->quantity = $request->{'quantity_'.$b};
         $reward = Reward::where('id',$return_id)->first();
-        $reward->orders()->save($order);
+        $request->session()->put('order'.$return_id,$order);
         $rewards[] =$reward;
-        $orders[] =$order;
+        $orders[] = $request->{'quantity_'.$b};
         }
         $project = Project::where('id',$id)->first();
         return view ('project.check',compact('orders','project','rewards'));
+    }
+
+    public function pay(Request $request){
+        foreach($request->reward_id as $return_id){
+        $order = $request->session()->get('order'.$return_id);
+        $reward = Reward::where('id',$order->reward_id)->first();
+        $reward->orders()->save($order);
+        }
+        return redirect()->to('/home');
     }
     public function create(){
         return view('project.create');
@@ -65,10 +74,27 @@ class ProjectController extends Controller
         $project->apprication_end=$request->apprication_end;
         $project->title =$request->title;
         $project->description =$request->description;
+        $request->session()->put('project',$project);
+        
+        //$orner->lives()->save($project);
+        return view('project.reward',compact('project'));
+    }
+    public function save(Request $request){
         $orner_id = $request->session()->get('login_orner_59ba36addc2b2f9401580f014c7f58ea4e30989d');
         $orner = Orner::where('id',$orner_id)->first();
+        $project = $request->session()->get('project');
         $orner->lives()->save($project);
-        return view('project.reward',compact('project'));
+        $reward1 = $request->session()->get('reward1');
+        $project->rewards()->save($reward1);
+        if($request->session('reward2')){
+        $reward2 = $request->session()->get('reward2');
+        $project->rewards()->save($reward2);
+        }elseif($request->session('reward3')){
+        $reward3 = $request->session()->get('reward3');
+        $project->rewards()->save($reward3);
+        }
+        
+        return redirect()->to('orner/home');
     }
     public function histry(){
         $histry_orders = Order::where('user_id',Auth::id())->get();
