@@ -53,13 +53,13 @@
         </div>
         <div class="add_reward" id="on" style="text-align:center">
             <div class="button">
-                <input class="button_link" type="submit" value="さらにリターンを追加する" onclick="document.getElementById('reward2').style.display='block';document.getElementById('on').style.display='none';document.getElementById('in').style.display='block';">
+                <input class="button_link" type="button" value="さらにリターンを追加する" onclick="document.getElementById('reward2').style.display='block';document.getElementById('on').style.display='none';document.getElementById('in').style.display='block';">
                 </input>
             </div> 
         </div>
         <div class="add_reward" id="in" style="text-align:center">
             <div class="button">
-                <input class="button_link" type="submit" value="さらにリターンを追加する" onclick="document.getElementById('reward3').style.display='block';document.getElementById('in').style.display='none';">
+                <input class="button_link" type="button" value="さらにリターンを追加する" onclick="document.getElementById('reward3').style.display='block';document.getElementById('in').style.display='none';">
                 </input>
             </div> 
         </div> 

@@ -41,6 +41,10 @@ Route::group(['prefix' => 'orner', 'middleware' => 'auth:orner'], function(){
     Route::get('home', 'Orner\HomeController@index')->name('orner.home');
     Route::get('histry/{rere}','Orner\HomeController@histry')->name('orner.home');
     Route::get('edit/project/{id}','Orner\HomeController@edit_project')->name('orner.edit');
+    Route::post('edit/project/{id}','Orner\HomeController@update_project')->name('orner.edit');
+    Route::get('edit/reward/{id}','Orner\HomeController@edit_reward')->name('orner.edit');
+    Route::post('edit/reward/{id}','Orner\HomeController@update_reward')->name('orner.edit');
+    Route::post('delete/reward/{id}','Orner\HomeController@delete_reward')->name('orner.delete');
 });
 
 

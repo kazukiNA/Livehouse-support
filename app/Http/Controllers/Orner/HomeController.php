@@ -45,5 +45,42 @@ class HomeController extends Controller
         return view('orner.histry',compact('histry_reward','histry_orders'));
     }
 
-    
+    public function edit_project($id){
+        $project = Project::where('id',$id)->first();
+        return view('orner.edit_project',compact('project'));
+    }
+
+    public function update_project(Request $request,$id){
+       
+        $update = [
+        'livehouse_name' => $request->livehouse_name,
+        'target_amount' => $request->target_amount,
+        'apprication_end' => $request->apprication_end,
+        'title' => $request->title,
+        'description' => $request->description,
+        ];
+        $project = Project::where('id',$id)->update($update);
+        return redirect()->to('/orner/home');
+    }
+
+    public function edit_reward($id){
+        $reward = Reward::where('id',$id)->first();
+        return view('orner.edit_reward',compact('reward'));
+    }
+
+    public function update_reward(Request $request,$id){
+       
+        $update = [
+        'reward_price' => $request->reward_price,
+        'reward_content' => $request->reward_content,
+        ];
+        $reward = Reward::where('id',$id)->update($update);
+        return redirect()->to('/orner/home');
+    }
+
+    public function delete_reward(Request $request){
+        Reward::find($request->id)->delete();
+        return redirect('orner/home');
+    }
+
 }

@@ -8,8 +8,9 @@
     </div>
         <div class="box-check">
             <div class="box-check-in">
-                <h3>ライブハウス情報</h3>　<a href='edit/project/{{$created->id}}' class="btn btn-primary btn-sm">編集</a>
+                
                 @if(!empty($created))
+                <h3>基本情報</h3>　<a href='edit/project/{{$created->id}}' class="btn btn-primary btn-sm">編集</a>
                     <table class="check_table" border="1">
                         <tr>
                             <th class="confirm-heading">ライブハウス名</th>
@@ -32,8 +33,15 @@
                             <td class="confirm-content">{{$created->description}}</td>
                         </tr>
                     </table>
-                    <table class="check_table" border="1">
+                    
                         @for($i=0; $i < count($created_rewards);$i++)
+                        
+                        <h3>リターン情報</h3>　<a href='edit/reward/{{$created_rewards[$i]->id}}' class="btn btn-primary btn-sm">編集</a>
+                        <form method="post" action="/orner/delete/reward/{{$created_rewards[$i]->id}}">
+                            {{ csrf_field()}}
+                        <input type="submit" value="削除"　class="btn btn-primary btn-sm" onclick='return confirm("削除しますか？");'>
+                        </form>
+                        <table class="check_table" border="1">
                         <tr>
                             <th class="confirm-heading">リターン金額</th>
                             <td class="confirm-content">{{$created_rewards[$i]->reward_price}} 円</td>
