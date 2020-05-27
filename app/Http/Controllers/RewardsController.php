@@ -3,15 +3,16 @@
 namespace OurLive\Http\Controllers;
 
 use Illuminate\Http\Request;
+use OurLive\Http\Requests\CreateRewardRequest;
 use OurLive\Project;
 use OurLive\Reward;
 use OurLive\Orner;
 
 class RewardsController extends Controller
 {
-    public function store(Request $request, Project $project, Orner $orner){
+    public function store(CreateRewardRequest $request, Project $project, Orner $orner){
     
-        
+        $this->validate($request,Reward::$rules);
         if($request->reward1_price){
         $reward1 = new Reward;
         $reward1->reward_price= $request->reward1_price;
@@ -37,6 +38,7 @@ class RewardsController extends Controller
         $rewards[]=$reward3;
         }
         $project = $request->session()->get('project');
+        
         return view('project.confirm',compact('project','rewards'));
         //return redirect('/reward');
         }

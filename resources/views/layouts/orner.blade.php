@@ -59,12 +59,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     
-                                    <a class="dropdown-item" href="/history"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('histry-form').submit();">
-                                        {{ __('支援したライブハウス') }}
-                                    </a>
-
+                                
                                     <form id="histry-form" action="/histry" method="POST" style="display: none;">
                                         @csrf
                                     </form>

@@ -58,6 +58,11 @@
             </div>
         </div>
         @endforeach
+        @if($errors->has('checkbox'))
+            <div class="error error_order">
+                <p class="error_message">※{{ $errors->first('checkbox') }}</p>
+            </div>
+        @endif
         <div class="button">
             <input class="button_link" type="submit" value="次に進む">
             </input>

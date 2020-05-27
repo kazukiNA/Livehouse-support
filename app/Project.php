@@ -20,8 +20,8 @@ class Project extends Model
             'title' => 'required',
             'description' =>'required',
             'livehouse_name' =>'required',
-            'target_amount'=>'required',
-            'apprication_end'=>'required',
+            'target_amount'=>'required','integer',
+            'apprication_end'=>'required','date',
         
     );
 

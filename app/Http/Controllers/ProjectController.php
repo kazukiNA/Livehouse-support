@@ -4,6 +4,8 @@ namespace OurLive\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use OurLive\Http\Requests\CreateProjectRequest;
+use OurLive\Http\Requests\CreateOrderRequest;
 use OurLive\Project;
 use OurLive\Reward;
 use OurLive\Order;
@@ -34,7 +36,7 @@ class ProjectController extends Controller
         }
     }
 
-    public function check(Request $request,$project){
+    public function check(CreateOrderRequest $request,$project){
         $id = $project;
         foreach($request->selected_id as $return_id){
         $order = new Order;
@@ -65,9 +67,9 @@ class ProjectController extends Controller
     public function create(){
         return view('project.create');
     }
-    public function reward(Request $request){
+    public function reward(CreateProjectRequest $request){
 
-        $this->validate($request,Project::$rules);
+      
         $project = new Project;
         $project->livehouse_name = $request->livehouse_name;
         $project->target_amount =$request->target_amount;
