@@ -45,6 +45,10 @@ Route::group(['prefix' => 'orner', 'middleware' => 'auth:orner'], function(){
     Route::get('edit/reward/{id}','Orner\HomeController@edit_reward')->name('orner.edit');
     Route::post('edit/reward/{id}','Orner\HomeController@update_reward')->name('orner.edit');
     Route::post('delete/reward/{id}','Orner\HomeController@delete_reward')->name('orner.delete');
+    Route::get('create','ProjectController@create');
+    Route::post('reward/{project}','ProjectController@reward');
+    Route::post('confirm/','RewardsController@store');
+    Route::post('save/','ProjectController@save');
 });
 
 
@@ -60,14 +64,10 @@ Route::post('pay/','ProjectController@pay');
 
 Route::get('create','ProjectController@create');
 
-Route::post('reward/{project}','ProjectController@reward');
-
-Route::post('confirm/','RewardsController@store');
-
 Route::post('/charge','ChargeController@charge');
 
 Route::post('/histry{reward_id}','ProjectController@histry');
 
-Route::post('save/','ProjectController@save');
+
 
 //Route::match(['get','post'],'/confirm','ProjectController@inde');

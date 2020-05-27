@@ -4,6 +4,8 @@ namespace OurLive\Http\Controllers\Orner;
 
 use OurLive\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use OurLive\Http\Requests\CreateProjectRequest;
+use OurLive\Http\Requests\CreateOrderRequest;
 use Illuminate\Support\Facades\Auth;
 use OurLive\Orner;
 use OurLive\Project;
@@ -43,6 +45,24 @@ class HomeController extends Controller
         $histry_reward = Reward::where('id',$reward_id)->first();
         $histry_orders = Order::where('reward_id',$histry_reward->id)->get();
         return view('orner.histry',compact('histry_reward','histry_orders'));
+    }
+
+    public function create(){
+        return view('project.create');
+    }
+    public function reward(CreateProjectRequest $request){
+
+      
+        $project = new Project;
+        $project->livehouse_name = $request->livehouse_name;
+        $project->target_amount =$request->target_amount;
+        $project->apprication_end=$request->apprication_end;
+        $project->title =$request->title;
+        $project->description =$request->description;
+        $request->session()->put('project',$project);
+        
+        //$orner->lives()->save($project);
+        return view('project.reward',compact('project'));
     }
 
     public function edit_project($id){

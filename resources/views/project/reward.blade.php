@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.orner')
 
 @section('content')
     <div class="container mt-5">
@@ -6,7 +6,7 @@
             <h2>お返しをしましょう</h2>
             <hr>
         </div>
-        <form action="{{url('confirm/'.$project->id)}}" method="post">
+        <form action="{{url('/orner/confirm/'.$project->id)}}" method="post">
             {{ csrf_field() }}
             <div class="form-group clearfix">
                 <h3>リターン1</h3>

@@ -63,9 +63,8 @@
                                     <form id="histry-form" action="/histry" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-                                    <a class="dropdown-item" href="/home"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('home-form').submit();">
+                                    <a class="dropdown-item" href="/orner/home"
+                                       >
                                         {{ __('ホーム') }}
                                     </a>
 

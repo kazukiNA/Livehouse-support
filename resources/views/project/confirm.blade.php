@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.orner')
 
 @section('content')
     <div class="container mt-5">
@@ -41,7 +41,7 @@
                     @endforeach
                 </table>
             </div>
-            <form action="{{url('save/')}}" method="post">
+            <form action="{{url('/orner/save/')}}" method="post">
                 {{ csrf_field()}}
                 <div class="button">
                     <input type="hidden" value="{{$project}}">

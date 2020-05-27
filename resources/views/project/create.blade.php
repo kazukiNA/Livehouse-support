@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.orner')
 
 @section('content')
     <div class="container mt-5">
@@ -6,7 +6,7 @@
             <h2>新規サポート作成</h2>
             <hr>
         </div>
-        <form action="{{url('/reward/{project}')}}" method="post">
+        <form action="{{url('/orner/reward/{project}')}}" method="post">
             {{ csrf_field() }}
         <div class="form-group clearfix">
             <label for="livehouse_name" class="form-heading">{{ __('ライブハウス名') }}</label>

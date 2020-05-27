@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.orner')
 
 @section('content')
 <div class="container">
@@ -61,7 +61,7 @@
                     <div class="no-project">
                         <p>まだ受ける支援内容を作成していません。</p>
                         <div class="button">
-                            <a href="/create" class="button_link">新規作成</a>
+                            <a href="/orner/create" class="button_link">新規作成</a>
                         </div>
                     </div>
                 @endif
