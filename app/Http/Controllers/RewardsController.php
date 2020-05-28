@@ -12,7 +12,7 @@ class RewardsController extends Controller
 {
     public function store(CreateRewardRequest $request, Project $project, Orner $orner){
     
-        $this->validate($request,Reward::$rules);
+        
         if($request->reward1_price){
         $reward1 = new Reward;
         $reward1->reward_price= $request->reward1_price;

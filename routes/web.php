@@ -54,8 +54,6 @@ Route::group(['prefix' => 'orner', 'middleware' => 'auth:orner'], function(){
 
 Route::get('home', 'ProjectController@index')->name('home');
 
-Route::get('project','ProjectController@index');
-
 Route::get('support/{project}','ProjectController@support');
 
 Route::post('check/{project}','ProjectController@check');
@@ -64,9 +62,7 @@ Route::post('pay/','ProjectController@pay');
 
 Route::get('create','ProjectController@create');
 
-Route::post('/charge','ChargeController@charge');
-
-Route::post('/histry{reward_id}','ProjectController@histry');
+Route::post('/histry','ProjectController@histry');
 
 
 

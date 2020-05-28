@@ -33,6 +33,11 @@
            <h2>リターンを選ぶ</h2> 
         </div>
         <hr class="border_line">
+        @if($errors->has('selected_id'))
+            <div class="error error_order">
+                <p class="error_message">※{{ $errors->first('selected_id') }}</p>
+            </div>
+        @endif
         @foreach($rewards as $reward)
         <div class="box-return">
             <div class="box-in-return">
@@ -58,11 +63,6 @@
             </div>
         </div>
         @endforeach
-        @if($errors->has('checkbox'))
-            <div class="error error_order">
-                <p class="error_message">※{{ $errors->first('checkbox') }}</p>
-            </div>
-        @endif
         <div class="button">
             <input class="button_link" type="submit" value="次に進む">
             </input>

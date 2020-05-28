@@ -24,13 +24,13 @@ class CreateOrderRequest extends FormRequest
     public function rules()
     {
         return [
-            'checkbox' => 'required',
+            'selected_id' => 'required',
         ];
     }
 
     public function messages(){
         return [
-            'checkbox.required' => 'リターンは最低一つ選んでください',
+            'selected_id.required' => 'リターンは最低一つ選んでください',
         ];
     }
 }
