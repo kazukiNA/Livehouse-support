@@ -7,15 +7,13 @@
         <hr>
     </div>
         <div class="box-check">
-            <div class="box-header">
+            <div class="box-body">
                 @if(!empty($created))
                 <p class="home-title">基本情報</p>
-                <div class="action_link">　
-                    <a href='edit/project/{{$created->id}}' class="btn btn-primary btn-sm">編集</a>
-                </div>
-            </div>
-                    <table class="check_table" border="1">
-                        <tr>
+                <a href='edit/project/{{$created->id}}' class="btn btn-primary btn-sm edit_button">編集</a> 
+                <hr class="home-hr">
+                <table class="home_table" border="1">
+                    <tr>
                             <th class="confirm-heading">ライブハウス名</th>
                             <td class="confirm-content">{{$created->livehouse_name}}</td>
                         </tr>
@@ -34,21 +32,21 @@
                         <tr>
                             <th class="confirm-heading">概要文</th>
                             <td class="confirm-content">{{$created->description}}</td>
-                        </tr>
-                    </table>
+                        </tr>    
+                    </table>    
+            </div>
+            <div class="box-body">
+                
+                    @for($i=0; $i < count($created_rewards);$i++)
                     
-                        @for($i=0; $i < count($created_rewards);$i++)
-                        <div class="box-header">
-                            <p class="home-title">リターン情報</p>
-                            <div class="action_link">　
-                                <a href='edit/reward/{{$created_rewards[$i]->id}}' class="btn btn-primary btn-sm">編集</a>
-                                <form method="post" action="/orner/delete/reward/{{$created_rewards[$i]->id}}">
-                                    {{ csrf_field()}}
-                                    <input type="submit" value="削除"　class="btn btn-primary btn-sm" onclick='return confirm("削除しますか？");'>
-                                </form>
-                            </div>
-                        </div>
-                        <table class="check_table" border="1">
+                    <table class="home_table" border="1">
+                        <p class="home-title">リターン{{$i+1}}情報</p>
+                        <a href='edit/reward/{{$created_rewards[$i]->id}}' class="btn btn-primary btn-sm edit_button">編集</a>
+                        <form method="post" action="/orner/delete/reward/{{$created_rewards[$i]->id}}" class="delete_button">
+                            {{ csrf_field()}}
+                            <input type="submit" value="削除"　class="btn btn-sm delete_button" onclick='return confirm("削除しますか？");'>
+                        </form>
+                        <hr>
                         <tr>
                             <th class="confirm-heading">リターン金額</th>
                             <td class="confirm-content">{{$created_rewards[$i]->reward_price}} 円</td>
@@ -58,11 +56,11 @@
                             <td class="confirm-content">{{$created_rewards[$i]->reward_content}}</td>
                         </tr>
                         @php $reward_id=$created_rewards[$i]->id; @endphp
-                        
+                        <tr>
                             <th class="confirm-heading">支援者数</th>
                             <td class="confirm-content">{{$support_count[$i]}} 人　[<a href="{{url('orner/histry/'.$reward_id)}}">詳細</a>]</td>
                         </tr>
-                        @endfor
+                    @endfor
                     </table>
                 @else
                     <div class="no-project">

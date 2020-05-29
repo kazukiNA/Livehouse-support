@@ -5,14 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">新規登録</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('ニックネーム') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">名前</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('メールアドレス') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">メールアドレス</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('性別') }}</label>
+                            <label for="gender" class="col-md-4 col-form-label text-md-right">性別</label>
 
                             <div class="col-md-6">
                                 <div class="form-check form-check-inline">
@@ -60,45 +60,9 @@
                                 @enderror
                             </div>
                         </div>
-<!--
-                        <div class="form-group row">
-                            <label for="age" class="col-md-4 col-form-label text-md-right">{{ __('生年月日') }}</label>
-                            <div class="col-md-6">
-                                
-                                    <select id="birth_year" class="form-control @error('birth') is-invalid @enderror" name="birth_year" required autocomplete="birth_year">
-                                        <option value="">---</option>
-                                        @foreach(range(1920,2020) as $year)
-                                        <option value="{{$year}}">{{$year}}</option>
-                                        @endforeach
-                                    </select>
-                                
-                               
-                                    <select id="birth_month" class="form-control @error('birth') is-invalid @enderror" name="birth_month" required autocomplete="birth_month">
-                                        <option value="">---</option>
-                                        @foreach(range(1,12) as $month)
-                                        <option value="{{$month}}">{{$month}}</option>
-                                        @endforeach
-                                    </select>
-                              
-                                    <select id="birth_day" class="form-control @error('birth') is-invalid @enderror" name="birth_day" required autocomplete="birth_day">
-                                        <option value="">---</option>
-                                        @foreach(range( 1,31) as $day)
-                                        <option value="{{$day}}">{{$day}}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('birth')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                
-                           
-                        </div>
-
--->
                         
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('パスワード') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">パスワード</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -112,7 +76,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('パスワード（確認用）') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">パスワード(確認用)</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -122,7 +86,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register')}}
+                                    登録する
                                 </button>
                             </div>
                         </div>

@@ -270,7 +270,49 @@ table td{
     margin-left: 260px;
 }
 
-.box-header{
+.box-body{
     width:70%;
     margin:0 auto;
+    margin-top: 20px;
+}
+
+.home-title{
+    font-size: 22px;
+    display: inline;
+}
+
+.edit_button{
+    margin-left: 14px;
+}
+
+.home-hr{
+    margin-top: 0;
+}
+
+.home_table{
+    margin:30px 0;
+}
+
+.delete_button{
+    background-color: red;
+    margin-left: 10px;
+    color: white;
+}
+
+.welcome-orner{
+    width:20%;
+}
+
+.welcome-user{
+    width:30%;
+    margin-left: 100px;;
+}
+
+.welcome-button{
+    margin:60px auto;
+    width:28%;
+}
+
+.orner_button{
+    text-align: center;
 }

@@ -22,7 +22,7 @@ Auth::routes();
 
 Route::group(['prefix' => 'orner', 'middleware' => 'guest:orner'], function() {
     Route::get('/', function () {
-        return view('orner.welcome');
+        return view('welcome');
     });
 
 Route::get('login', 'Orner\Auth\LoginController@showLoginForm')->name('orner.login');

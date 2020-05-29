@@ -25,7 +25,7 @@
             </table>
             @endforeach
             </div>
-            <div class="button">
+            <div class="button orner_button">
                     <a href="/orner/home" class="back_link">管理画面に戻る</a>
                 </div>
         </div>
