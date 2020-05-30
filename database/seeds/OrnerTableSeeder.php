@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use OurLive\User;
+use OurLive\Orner;
 
-class UserTableSeeder extends Seeder
+class OrnerTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,7 +13,6 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-        factory(User::class,50)->create();
+        factory(Orner::class,50)->create();
     }
-    }
+}
