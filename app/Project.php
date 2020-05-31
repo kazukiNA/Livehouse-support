@@ -34,22 +34,4 @@ class Project extends Model
     }
 }
 
-/*<?php
 
-namespace OurLive;
-
-use Illuminate\Database\Eloquent\Model;
-
-class Post extends Model
-{
-    //
-    protected $fillable = [
-        'title',
-        'body',
-    ];
-
-    public function comments()
-    {
-        return $this->hasMany('OurLive\Comment');    
-    }
-}

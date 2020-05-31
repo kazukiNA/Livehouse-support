@@ -40,11 +40,9 @@ class ProjectController extends Controller
         $id = $project;
         foreach($request->selected_id as $return_id){
         $order = new Order;
-        $order->project_id = $id;
         $order->reward_id = $return_id;
         $order->user_id = Auth::id();
         $user = Auth::user();
-        $order->user_name = $user->name;
         $b = intval($return_id);
         $order->quantity = $request->{'quantity_'.$b};
         $reward = Reward::where('id',$return_id)->first();
@@ -102,8 +100,9 @@ class ProjectController extends Controller
         $histry_orders = Order::where('user_id',Auth::id())->get();
         //$histry_ordersはそのuserが支援した回数ごと全部
         foreach($histry_orders as $histry_order){
-            $histry_projects[] =Project::where('id',$histry_order->project_id)->first();
             $histry_rewards[] = Reward::where('id',$histry_order->reward_id)->first();
+            $project = Reward::where('id',$histry_order->reward_id)->first();
+            $histry_projects[] =Project::where('id',$project->project_id)->first();
         }
         return view('project.histry',compact('histry_orders','histry_projects','histry_rewards'));
     }

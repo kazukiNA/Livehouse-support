@@ -11,7 +11,7 @@
                 <table class="check_table" border="1">
                     <tr>
                         <th>ライブハウス名</th>
-                        <td>{{$histry_projects[1]->livehouse_name}}</td>
+                        <td>{{$histry_projects[$i]->livehouse_name}}</td>
                     </tr>
                     
                     <tr>
