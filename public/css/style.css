@@ -23,26 +23,61 @@
     float:left;
 }
 
+.rewards_add{
+    margin:120px;
+}
+
 .form-body{
     width:80%;
     float:left;
-    margin-bottom:40px;
+    height: calc( 1.3em * 5 );
 }
 
 .form-control{
     width:80%;
 }
 
+.reward-group{
+    padding-bottom:50px;
+}
+
+.reward-number{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.confirm-table{
+    width: 70%;
+    margin: 20px auto;
+}
+
+.h5{
+    font-size: medium;
+    text-align: center;
+}
+
 .content_text{
-    padding:80px;
+    width:80%;
+    height:130px;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 #reward2{
     display: none;
+    margin-top:50px;
 }
 
 #reward3{
     display:none;
+    margin-top:50px;
+    margin-bottom:100px;
+}
+
+.confirm-link{
+    margin-top:100px
 }
 
 #in{
@@ -187,8 +222,7 @@ small{
 }
 
 input[type="checkbox"]{
-    transform: scale(2.3);
-    margin:0 10px;
+    transform: scale(1.5);
 }
 
 .number2{
@@ -315,4 +349,9 @@ table td{
 
 .orner_button{
     text-align: center;
+}
+
+.more-reward{
+    background-color: teal;
+    border-radius: 5px;
 }

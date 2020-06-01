@@ -8,14 +8,14 @@
         </div>
         <div class="box-check">
             <div class="box-check-in">
-                <table class="check_table" border="1">
+                <table class="confirm-table" border="1">
                     <tr>
                         <th class="confirm-heading">ライブハウス名</th>
                         <td class="confirm-content">{{$project->livehouse_name}}</td>
                     </tr>
                     <tr>
                         <th class="confirm-heading">目標金額</th>
-                        <td class="confirm-content">{{$project->target_amount}}</td>
+                        <td class="confirm-content">{{$project->target_amount}}円</td>
                     </tr>
                     <tr>
                         <th class="confirm-heading">支援終了日</th>
@@ -29,17 +29,23 @@
                         <th class="confirm-heading">概要文</th>
                         <td class="confirm-content">{{$project->description}}</td>
                     </tr>
-                    @foreach($rewards as $reward)
-                    <tr>
-                        <th class="confirm-heading">リターン金額</th>
-                        <td class="confirm-content">{{$reward->reward_price}}</td>
-                    </tr>
-                    <tr>
-                        <th class="confirm-heading">リターン内容</th>
-                        <td class="confirm-content">{{$reward->reward_content}} 円</td>
-                    </tr>
-                    @endforeach
                 </table>
+                @for($i=0; $i < count($rewards); $i++)
+                <div class="reward-number">
+                    <h5>リターン{{$i+1}}</h5>
+                </div>
+                <table class="confirm-table" border="1">
+                    <tr>
+                        <th class="confirm-heading">金額</th>
+                        <td class="confirm-content">{{$rewards[$i]->reward_price}}円</td>
+                    </tr>
+                    <tr>
+                        <th class="confirm-heading">内容</th>
+                        <td class="confirm-content">{{$rewards[$i]->reward_content}}</td>
+                    </tr>
+                </table>
+                @endfor
+                
             </div>
             <form action="{{url('/orner/save/')}}" method="post">
                 {{ csrf_field()}}
