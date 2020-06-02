@@ -4,7 +4,7 @@
     <div class="container mt-4">
         <h2>内容をご確認ください</h2>
         <hr> 
-        <form action="{{url('pay/')}}" method="post"> 
+        <form action="{{url('done')}}" method="post"> 
                     {{ csrf_field()}}  
         <div class="box-check">
             

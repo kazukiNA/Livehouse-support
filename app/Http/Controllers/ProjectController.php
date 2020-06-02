@@ -60,7 +60,7 @@ class ProjectController extends Controller
         $reward = Reward::where('id',$order->reward_id)->first();
         $reward->orders()->save($order);
         }
-        return redirect()->to('/home');
+        return view('project.done');
     }
     public function create(){
         return view('project.create');
@@ -94,7 +94,7 @@ class ProjectController extends Controller
         $project->rewards()->save($reward3);
         }
         
-        return redirect()->to('orner/home');
+        return view('project.completion');
     }
     public function histry(){
         $histry_orders = Order::where('user_id',Auth::id())->get();

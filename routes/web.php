@@ -20,6 +20,8 @@ Route::get('/', 'ProjectController@welcome');
 
 Auth::routes();
 
+Route::get('/login/{social}','Auth\LoginController@socialLogin')->where('social','facebook|twitter');
+Route::get('/login/{social}/callback','Auth\LoginController@handleProviderCallback')->where('social','facebook|twitter');
 Route::group(['prefix' => 'orner', 'middleware' => 'guest:orner'], function() {
     Route::get('/', function () {
         return view('welcome');
@@ -58,7 +60,7 @@ Route::get('support/{project}','ProjectController@support');
 
 Route::post('check/{project}','ProjectController@check');
 
-Route::post('pay/','ProjectController@pay');
+Route::post('done/','ProjectController@pay');
 
 Route::get('create','ProjectController@create');
 
