@@ -20,13 +20,12 @@ Route::get('/', 'ProjectController@welcome');
 
 Auth::routes();
 
-Route::get('/login/{social}','Auth\LoginController@socialLogin')->where('social','facebook|twitter');
-Route::get('/login/{social}/callback','Auth\LoginController@handleProviderCallback')->where('social','facebook|twitter');
+Route::get('/login/twitter','Auth\LoginController@redirectToTwitterProvider');
+Route::get('/login/twitter/callback','Auth\LoginController@handleTwitterProviderCallback');
 Route::group(['prefix' => 'orner', 'middleware' => 'guest:orner'], function() {
     Route::get('/', function () {
         return view('welcome');
     });
-
 Route::get('login', 'Orner\Auth\LoginController@showLoginForm')->name('orner.login');
 Route::post('login', 'Orner\Auth\LoginController@login')->name('orner.login');
 

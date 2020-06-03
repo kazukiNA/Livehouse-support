@@ -16,7 +16,7 @@ class Orner extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name','ruby','phone_number','email','city_address','password',
+        'name','ruby','phone_number','email','address','password',
     ];
 
     /**

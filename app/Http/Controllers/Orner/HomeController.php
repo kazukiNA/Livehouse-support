@@ -11,6 +11,7 @@ use OurLive\Orner;
 use OurLive\Project;
 use OurLive\Reward;
 use OurLive\Order;
+use OurLive\User;
 
 class HomeController extends Controller
 {
@@ -44,7 +45,10 @@ class HomeController extends Controller
     public function histry($reward_id){
         $histry_reward = Reward::where('id',$reward_id)->first();
         $histry_orders = Order::where('reward_id',$histry_reward->id)->get();
-        return view('orner.histry',compact('histry_reward','histry_orders'));
+        foreach($histry_orders as $histry_order){
+            $user[]=User::where('id',$histry_order->user_id)->first();
+        }
+        return view('orner.histry',compact('histry_reward','histry_orders','user'));
     }
 
     public function create(){

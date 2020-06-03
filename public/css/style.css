@@ -355,3 +355,21 @@ table td{
     background-color: teal;
     border-radius: 5px;
 }
+
+.completion {
+    text-align: center;
+    font-size: medium;
+}
+
+.completion-button {
+    text-align: center;
+}
+
+.done{
+    text-align: center;
+    font-size: medium;
+}
+
+.done-button{
+    text-align: center;
+}

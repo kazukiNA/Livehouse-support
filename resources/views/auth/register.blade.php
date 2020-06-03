@@ -38,28 +38,6 @@
                                 @enderror
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="gender" class="col-md-4 col-form-label text-md-right">性別</label>
-
-                            <div class="col-md-6">
-                                <div class="form-check form-check-inline">
-                                    <input id="male" type="radio" class="form-check-input @error('gender') is-invalid @enderror" name="gender" value="male" required autocomplete="gender"><label class="form-check-lavel" for="male">男性</label>                                    
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input id="female" type="radio" class="form-check-input @error('gender') is-invalid @enderror" name="gender" value="female" required autocomplete="gender"><label class="form-check-lavel" for="female">女性</label>                                    
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input id="secret" type="radio" class="form-check-input @error('gender') is-invalid @enderror" name="gender" value="secret" required autocomplete="gender"><label class="form-check-lavel" for="secret">無回答</label>                                    
-                                </div>
-        
-                                @error('gender')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
                         
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">パスワード</label>
@@ -73,7 +51,7 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                        </>
 
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">パスワード(確認用)</label>
