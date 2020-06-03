@@ -59,4 +59,43 @@ class LoginController extends Controller
         Auth::login($myinfo);
         return redirect()->to('/home');
     }
+
+    public function redirectToFacebookProvider()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    public function handleFacebookProviderCallback()
+    {
+        try{
+            $user = Socialite::with("facebook")->user();
+        }
+        catch (\Exception $e){
+            return redirect('/login')->with('oauth_error','ログインに失敗しました');
+        }
+        
+        $myinfo = User::firstOrCreate(['token' => $user->token],['name' => $user->name ,'email' => $user->getEmail()]);
+        Auth::login($myinfo);
+        return redirect()->to('/home');
+    }
+
+    public function redirectToGoogleProvider()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function handleGoogleProviderCallback()
+    {
+        try{
+            $user = Socialite::with("google")->user();
+        }
+        catch (\Exception $e){
+            return redirect('/login')->with('oauth_error','ログインに失敗しました');
+        }
+        
+        $myinfo = User::firstOrCreate(['token' => $user->token],['name' => $user->name ,'email' => $user->getEmail()]);
+        Auth::login($myinfo);
+        return redirect()->to('/home');
+    }
 }
+

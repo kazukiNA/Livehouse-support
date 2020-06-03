@@ -15,6 +15,8 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">SNSアカウントでログイン</label>
                             <div class="col-md-6">
                                 <a href="{{url('login/twitter')}}"  class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="{{url('login/facebook')}}"  class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>
+                                <a href="{{url('login/google')}}"  class="btn btn-social-icon btn-google"><i class="fa fa-google"></i></a>
                             </div>
                         </div>
 
