@@ -41,61 +41,35 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function redirectToTwitterProvider()
+    
+
+    public function redirectProvider($social)
     {
-        return Socialite::driver('twitter')->redirect();
+        return Socialite::driver($social)->redirect();
     }
 
-    public function handleTwitterProviderCallback()
+    public function handleProviderCallback($social)
     {
-        try{
-            $user = Socialite::with("twitter")->user();
+        $userSocial = Socialite::driver($social)->user();
+        $user = User::where(['email' => $userSocial->getEmail()])->first();
+
+        if($user){
+            Auth::login($user);
+            return redirect('/home');
+
+        }else{
+
+            $newuser = new User;
+            $newuser->name = $userSocial->getName();
+            $newuser->email = $userSocial->getEmail();
+            $newuser->save();
+
+            Auth::login($newuser);
+            return redirect('/home');
+
         }
-        catch (\Exception $e){
-            return redirect('/login')->with('oauth_error','ログインに失敗しました');
-        }
-        
-        $myinfo = User::firstOrCreate(['token' => $user->token],['name' => $user->name ,'email' => $user->getEmail()]);
-        Auth::login($myinfo);
-        return redirect()->to('/home');
     }
 
-    public function redirectToFacebookProvider()
-    {
-        return Socialite::driver('facebook')->redirect();
-    }
-
-    public function handleFacebookProviderCallback()
-    {
-        try{
-            $user = Socialite::with("facebook")->user();
-        }
-        catch (\Exception $e){
-            return redirect('/login')->with('oauth_error','ログインに失敗しました');
-        }
-        
-        $myinfo = User::firstOrCreate(['token' => $user->token],['name' => $user->name ,'email' => $user->getEmail()]);
-        Auth::login($myinfo);
-        return redirect()->to('/home');
-    }
-
-    public function redirectToGoogleProvider()
-    {
-        return Socialite::driver('google')->redirect();
-    }
-
-    public function handleGoogleProviderCallback()
-    {
-        try{
-            $user = Socialite::with("google")->user();
-        }
-        catch (\Exception $e){
-            return redirect('/login')->with('oauth_error','ログインに失敗しました');
-        }
-        
-        $myinfo = User::firstOrCreate(['token' => $user->token],['name' => $user->name ,'email' => $user->getEmail()]);
-        Auth::login($myinfo);
-        return redirect()->to('/home');
-    }
+    
 }
 

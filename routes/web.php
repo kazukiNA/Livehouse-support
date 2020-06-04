@@ -20,12 +20,9 @@ Route::get('/', 'ProjectController@welcome');
 
 Auth::routes();
 
-Route::get('/login/twitter','Auth\LoginController@redirectToTwitterProvider');
-Route::get('/login/twitter/callback','Auth\LoginController@handleTwitterProviderCallback');
-Route::get('/login/facebook','Auth\LoginController@redirectToFacebookProvider');
-Route::get('/login/facebook/callback','Auth\LoginController@handleFacebookProviderCallback');
-Route::get('/login/google','Auth\LoginController@redirectToGoogleProvider');
-Route::get('/login/google/callback','Auth\LoginController@handleGoogleProviderCallback');
+Route::get('login/{social}','Auth\LoginController@redirectProvider')->where('social','twitter|facebook|google');
+Route::get('login/{social}/callback','Auth\LoginController@handleProviderCallback')->where('social','twitter|facebook|google');
+
 Route::group(['prefix' => 'orner', 'middleware' => 'guest:orner'], function() {
     Route::get('/', function () {
         return view('welcome');
