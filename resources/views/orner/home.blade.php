@@ -31,7 +31,7 @@
                         </tr>
                         <tr>
                             <th class="confirm-heading">概要文</th>
-                            <td class="confirm-content">{{$created->description}}</td>
+                            <td class="confirm-content">{!! nl2br($created->description) !!}</td>
                         </tr>    
                     </table>    
             </div>
@@ -53,7 +53,7 @@
                         </tr>
                         <tr>
                             <th class="confirm-heading">リターン内容</th>
-                            <td class="confirm-content">{{$created_rewards[$i]->reward_content}}</td>
+                            <td class="confirm-content">{!! nl2br($created_rewards[$i]->reward_content) !!}</td>
                         </tr>
                         @php $reward_id=$created_rewards[$i]->id; @endphp
                         <tr>

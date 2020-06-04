@@ -58,7 +58,7 @@
                 </div>
                 <hr class="return_border">
                 <div class="box-return-content">
-                    {{$reward->reward_content}}
+                    {!! nl2br($reward->reward_content) !!}
                 </div>
             </div>
         </div>

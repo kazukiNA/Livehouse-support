@@ -27,7 +27,7 @@
                     </tr>
                     <tr>
                         <th class="confirm-heading">概要文</th>
-                        <td class="confirm-content">{{$project->description}}</td>
+                        <td class="confirm-content">{!! nl2br($project->description) !!}</td>
                     </tr>
                 </table>
                 @for($i=0; $i < count($rewards); $i++)
@@ -41,7 +41,7 @@
                     </tr>
                     <tr>
                         <th class="confirm-heading">内容</th>
-                        <td class="confirm-content">{{$rewards[$i]->reward_content}}</td>
+                        <td class="confirm-content">{!! nl2br($rewards[$i]->reward_content) !!}</td>
                     </tr>
                 </table>
                 @endfor

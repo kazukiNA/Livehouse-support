@@ -19,7 +19,7 @@
                     @for($i = 0; $i <count($rewards);$i++)
                     <tr>
                         <th>リターン内容</th>
-                        <td class="check_content">{{$rewards[$i]->reward_content}}</td>
+                        <td class="check_content">{!! nl2br($rewards[$i]->reward_content) !!}</td>
                     </tr>
                     <tr>
                         <th>支援金額</th>

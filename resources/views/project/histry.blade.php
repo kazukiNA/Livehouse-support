@@ -16,7 +16,7 @@
                     
                     <tr>
                         <th>リターン内容</th>
-                        <td>{{$histry_rewards[$i]->reward_content}}</td>
+                        <td>{!! nl2br($histry_rewards[$i]->reward_content) !!}</td>
                     </tr>
                     <tr>
                         <th>支援金額</th>
