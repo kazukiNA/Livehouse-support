@@ -373,3 +373,36 @@ table td{
 .done-button{
     text-align: center;
 }
+
+.social a {
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 12px;
+    margin:0 auto;
+}
+
+.social{
+    margin:0 auto;
+    width:80%;
+}
+
+.twitter {
+    background: #1da1f2;
+}
+
+
+.google{
+    background-color: tomato;
+}
+
+.icon {
+    display: inline-block;
+    
+    width: 40px;
+    margin-right: 10px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.4);
+}

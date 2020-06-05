@@ -19,7 +19,7 @@
                     </tr>
                     <tr>
                         <th class="confirm-heading">支援終了日</th>
-                        <td class="confirm-content">{{$project->apprication_end}}</td>
+                        <td class="confirm-content">@php echo date('Y年m月d日', strtotime($project->apprication_end)); @endphp</td>
                     </tr>
                     <tr>
                         <th class="confirm-heading">タイトル</th>
