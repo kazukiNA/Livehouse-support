@@ -386,13 +386,16 @@ table td{
 
 .social{
     margin:0 auto;
-    width:80%;
+    width:60%;
 }
 
 .twitter {
     background: #1da1f2;
 }
 
+.facebook {
+    background: #3c5a99;
+}
 
 .google{
     background-color: tomato;
