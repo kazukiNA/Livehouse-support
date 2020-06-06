@@ -6,9 +6,9 @@
     <div class="container mt-4 ">
         <h1>支援するライブハウスを探す</h1>
         <hr>
+        <div class="row">
         @foreach ($projects as $project)
-        <div class="liveproject">
-                <div class="boxes">
+                <div class="boxes col-4">
                     <div class="box">
                         <div class="box-in">
                             <a class="Link" href="/support/{{$project->id}}"></a>
@@ -35,7 +35,10 @@
                         </div>
                     </div>
                 </div>
-        </div>
         @endforeach
+        </div>
+        <div classe="d-flex justify-content-center">
+            {{ $projects->links() }}
+        </div>
     </div>
 @endsection
