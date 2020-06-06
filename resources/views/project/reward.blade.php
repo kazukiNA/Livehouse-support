@@ -14,7 +14,7 @@
                 </div> 
                 <label for="reward1_price" class="form-heading">{{ __('金額') }}</label>
                 <div class="form-body">
-                    <input id="reward1_price" type="number" class="form-control" name="reward1_price" value="{{ old('reward1_price') }}" placeholder="(例) 3000" autocomplete="off">円
+                    <input id="reward1_price" type="number" class="form-control" name="reward1_price" value="{{ old('reward1_price') }}" placeholder="(例) 3000" autocomplete="off">　円
                     @if($errors->has('reward1_price'))
                         <div class="error">
                             <p class="error_message">※{{ $errors->first('reward1_price') }}</p>
@@ -41,7 +41,7 @@
                 </div>       
                 <label for="reward2_price" class="form-heading">{{ __('金額') }}</label>
                 <div class="form-body">
-                    <input id="reward2_price" type="number" class="form-control" name="reward2_price" value="{{ old('reward2_price') }}"   autocomplete="off">
+                    <input id="reward2_price" type="number" class="form-control" name="reward2_price" value="{{ old('reward2_price') }}"   autocomplete="off">　円
                     @if($errors->has('reward2_price'))
                         <div class="error">
                             <p class="error_message">※{{ $errors->first('reward2_price') }}</p>
@@ -68,7 +68,7 @@
                 </div> 
                 <label for="reward2_price" class="form-heading">{{ __('金額') }}</label>
                 <div class="form-body">
-                    <input id="reward2_price" type="number" class="form-control " name="reward3_price" value="{{ old('reward3_price') }}"  autocomplete="off">
+                    <input id="reward2_price" type="number" class="form-control " name="reward3_price" value="{{ old('reward3_price') }}"  autocomplete="off">　円
                     @if($errors->has('reward3_price'))
                         <div class="error">
                             <p class="error_message">※{{ $errors->first('reward3_price') }}</p>

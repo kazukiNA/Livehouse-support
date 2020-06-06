@@ -35,6 +35,7 @@
 
 .form-control{
     width:80%;
+    display: inline-block;
 }
 
 .reward-group{
