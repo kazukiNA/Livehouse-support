@@ -16,7 +16,7 @@ use App\Project;
 /*Route::get('/', function () {
     return view('welcome');
 });*/
-Route::get('/', 'ProjectController@welcome');
+Route::get('/', 'Orner\ProjectController@welcome');
 
 Auth::routes();
 
@@ -47,24 +47,25 @@ Route::group(['prefix' => 'orner', 'middleware' => 'auth:orner'], function(){
     Route::get('edit/reward/{id}','Orner\HomeController@edit_reward')->name('orner.edit');
     Route::post('edit/reward/{id}','Orner\HomeController@update_reward')->name('orner.edit');
     Route::post('delete/reward/{id}','Orner\HomeController@delete_reward')->name('orner.delete');
-    Route::get('/create','ProjectController@create');
-    Route::post('/reward/{project}','ProjectController@reward');
-    Route::post('confirm/','RewardsController@store');
-    Route::post('save/','ProjectController@save');
+    Route::get('/create','Orner\ProjectController@create');
+    Route::post('/reward/{project}','Orner\ProjectController@reward');
+    Route::post('confirm/','Orner\ProjectController@store');
+    Route::post('save/','Orner\ProjectController@save');
+    
 });
 
 
-Route::get('home', 'ProjectController@index')->name('home');
+Route::get('home', 'HomeController@index')->name('home');
 
-Route::get('support/{project}','ProjectController@support');
+Route::get('support/{project}','SupportController@support');
 
-Route::post('check/{project}','ProjectController@check');
+Route::post('check/{project}','SupportController@check');
 
-Route::post('done/','ProjectController@pay');
+Route::post('done/','SupportController@pay');
 
-Route::get('create','ProjectController@create');
 
-Route::post('/histry','ProjectController@histry');
+
+Route::post('/histry','HomeController@histry');
 
 
 

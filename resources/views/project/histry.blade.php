@@ -27,7 +27,7 @@
                    
                 </table>
                 
-                <div class="button">
+                <div class="button back_button">
                     <a href="/home" class="back_link">ホームに戻る</a>
                 </div>
             </div>

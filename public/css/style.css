@@ -415,3 +415,7 @@ table td{
    width:10%;
    margin: 0 auto;
 }
+
+.back_button{
+    text-align: center;
+}
